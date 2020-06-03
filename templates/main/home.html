@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% block title %} 
+    Rho's Diary
+{% endblock %}
+{% load static %}
+
+{% block content %}
+<div class="parallax-container">
+        <div class="parallax"><img src="{% static 'img/home.jpg' %}" class="responsive-img" style="filter: blur(1px); "></div>
+        <div  class="center-align">
+            <h5>✍🏽💅🏽🙏🏽👩🏽‍🎓🩱💄💋💔💕</h5>
+        </div>
+        <div class="flow-text"><h2 class="center-align" style="color: #1a237e">Dear Diary...</h2></div>
+            <p class="flow-text"><b><h4 class="center-align" id="typer" style="color:  #5c6bc0; font-family: cursive;">...</h4></b></p>
+    </div>
+
+  
+    <div class="container">
+      <div class="row">
+        {% if article_content %}
+            {% for article in article_content %}
+                <div class="col s12 m4">
+                    <div class="card large hoverable">
+                        <div class="card-image">
+                            <img {% if article.blog_photo %} 
+                               srcset="{{ article.blog_photo.url }}" class="responsive-img"
+                              {% else %}
+                                srcset ="{% static 'img/overhead.jpg' %}" class="responsive-img"
+                              {% endif %}
+                              
+                             >
+                            <span class="card-title">{{ article.blog_title }}</span>
+                            
+                        </div>
+                        <div class="card-content">
+                            <span class="card-title"><a href="connect/{{ article.blog_author.slug }}" target="_blank" style="color: #303f9f;">
+                            {{ article.blog_author }}</a></span>
+                            <p>{{ article.short_description }}</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="blog/{{ article.blog_url }}">Read more</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <h2>No Post Available</h2>
+        {% endif %}
+      </div>
+      <a href="{% url 'blog:posts' %}" class="btn waves-effect waves-purple" style="background-color : #303f9f ">Read more..</a>
+     
+          
+    </div>
+ <br>
+    <div class="parallax-container valign-wrapper" style=" height: 300px;">
+        <div class="section no-pad-bot">
+          <div class="container">
+            <div class="row center">
+              <h5 class="header col s12 light " style="color: cornsilk;">The average life of a Nigerian College student</h5>
+            </div>
+          </div>
+        </div>
+        <div class="parallax"><img src="{% static 'img/hike.jpg' %}" class="responsive-img"></div>
+      </div>
+{% endblock %}

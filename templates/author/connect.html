@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %} 
+    Rho'D Connect
+{% endblock %}
+{% load static %}
+{% block content %}
+	 <div class="parallax-container">
+        <div class="parallax"><img src="{% static 'img/about.jpg' %}" class="responsive-img" style="filter:blur(3px);" ></div>
+        <div  class="center-align">
+            <h5>✍🏽💅🏽🙏🏽👩🏽‍🎓🩱💄💋💔💕</h5>
+            <br>
+            <br>
+            <br>
+            <h2 style="color: #c51162 ;">Who I   Am</h2>
+            <h4 style="color: #651fff; font-family: cursive;"><p id="typo">...</p></h4>
+        </div> 
+    </div>
+
+    <div class="container">
+      <h2 class="left-align" style="color: rebeccapurple;">Rho's Diary</h2>
+      <h6><blockquote>We are just a group of undergrads sharing our lives and how we survive it🤷🏽‍♀️🤷🏽‍♀️</blockquote></h6>
+
+      <h4 class="left-align">Our Authors</h4>
+      <div class="row">
+        {% for writer in writers %}
+        <div class="col s12 m6">
+          <div class="card"> <a href="{{ writer.slug }}">
+            <div class="card-image">
+              <img src="{{ writer.snap.url }}" class="responsive-img">
+              
+              <a class="btn-floating halfway-fab waves-effect waves-purple purple darken-3" href="{{ writer.slug }}"> <i>@</i></a>
+            </div>
+            <div class="card-content">
+              <span class="card-title" style="color: black;">{{ writer.first_name }} {{ writer.last_name }}</span>
+              <p>I am {{ writer.first_name }},and this is my story.</p>
+            </div>
+          </div> </a>
+        </div>
+        {% endfor %}
+      </div>  
+    </div>
+    <div class="parallax-container valign-wrapper" style=" height: 300px;">
+      <div class="section no-pad-bot">
+        <div class="container">
+          <div class="row center">
+            <h5 class="header col s12 light " style="color: cornsilk;">Thanks!!!! <p> Love from <a href="{{ writer.slug }}" style="color:thistle;"> Oghenerhona</a> and <a href="{{ writer.slug }}" style="color: rosybrown;"> Anirejuoriste</a></p></h5>
+          </div>
+        </div>
+      </div>
+      <div class="parallax"><img src="{% static 'img/overhead.jpg' %}" class="responsive-img"></div>
+    </div>
+
+{% endblock %}

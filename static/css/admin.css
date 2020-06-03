@@ -1,0 +1,34 @@
+#header {
+    background: #5c6bc0;
+    color: #FFFFFF;
+    height: 40px;
+}
+
+#branding h1, #branding h1 a:link, #branding h1 a:visited {
+    color: #fff;
+}
+
+.module h2, .module caption, .inline-group h2 {
+    background: #5c6bc0;
+    color: #fff;
+}
+
+div.breadcrumbs {
+    background: #303f9f;
+}
+
+.object-tools a:link, .object-tools a:visited {
+    background: #303f9f;
+}
+
+a:link, a:visited {
+    color: #5c6bc0;
+}
+
+.button.default, input[type=submit].default, .submit-row input.default {
+    background: #303f9f;
+}
+
+.button, input[type=submit], input[type=button], .submit-row input, a.button {
+    background: #303f9f;
+}

@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <title>I am {{ writers.first_name }}</title>
+    <meta name="author" content="Eyimofe" />
+    <meta name="description" content="A Nigerian Starstruck Engineer" />
+
+    <meta property="og:title" content="Rho's Diary" />
+    <meta property="og:description" content="A blog of a not so average teen" />
+
+    <meta property="og:image" content="" />
+
+    <link rel="icon" href="{% static 'img/favicon.png' %}" />
+
+
+    <link rel="stylesheet" href="{% static 'css/split.css' %}" type="text/css" media="screen" />
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <style>
+      .fs-split .split-image { background-image: url({{ writers.snap.url }}); background-position: center center; }   
+    </style>
+</head>
+
+<body id="fullsingle" class="page-template-page-fullsingle-split">
+  <div class="fs-split">
+    <div class="split-image">
+    </div>
+    <div class="split-content" style="background-color: blueviolet;">
+      <div class="split-content-vertically-center" style="background-color: blueviolet;" >
+        <h1 style="text-align: center;">  <a href="/" style="color: ghostwhite;font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"> RHO'S DIARY </a></h1><br>
+        <div class="split-intro">
+        <h1 style="color: ghostwhite;">{{ writers.first_name }} {{ writers.last_name }}</h1>
+        <span class="tagline" style="color: cornsilk;">{{ writers.value_1 }}. {{ writers.value_2 }}. </span>
+      </div>
+  <div class="split-bio" >
+  <p style="color: honeydew; font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif">{{ writers.description }}</p>
+</div>
+  <div class="split-lists">
+      <div class="split-list">
+        <h3 style="color: honeydew;">Social</h3>
+        <ul>
+            <li ><a  style="color: lavender; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;" href="https://www.instagram.com/{{ writers.instagram}}/" target="_blank"> <i class="fab fa-instagram"></i>  @{{ writers.instagram }}</a></li>       
+        </ul>
+      </div>
+      <div class="split-list">
+        <h3  style="color: lavender;">Connect</h3>
+        <ul>
+            <li><a   style="color: lavender; font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;"href="mailto:{{ writers.email }}"> <i class="fas fa-envelope"></i> Email</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  </div>
+
+</div>
+</body>
+</html>
+

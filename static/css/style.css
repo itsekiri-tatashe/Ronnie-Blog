@@ -1,0 +1,36 @@
+.parallax-container {
+    height: 400px;
+    background-attachment: scroll;
+    position: relative;
+    background-size: cover
+}
+
+
+
+.card .card-action a:not(.btn):not(.btn-large):not(.btn-small):not(.btn-large):not(.btn-floating) {
+    color: #4a148c;
+}
+
+blockquote {
+    border-left: 5px solid blueviolet;
+}
+
+.chip {
+    background-color:  blueviolet;
+    color:snow;
+}
+
+.dark-mode{
+	background-color: black;
+	color: white;
+}
+
+body{
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+}

@@ -1,0 +1,69 @@
+    <nav class="indigo lighten-1" role="navigation">
+        <div class="nav-wrapper container"><a id="logo-container" href="{% url 'main:home' %}" class="brand-logo">Rho's Diary</a>
+          <ul class="right hide-on-med-and-down">
+            <li
+            {% if '/' == request.path %}
+              class="active"
+            {% else %}
+              class ="non-active"
+            {% endif %}  
+              ><a href="{% url 'main:home' %}">Home</a></li>
+            <li 
+            {% if 'blog' in request.path %}
+              class="active"
+            {% else %}
+              class ="non-active"
+            {% endif %}  
+            ><a href="{% url 'blog:posts' %}">Blog</a></li>
+            <li
+              {% if 'connect' in request.path %}
+              class="active"
+            {% else %}
+              class ="non-active"
+            {% endif %} 
+            ><a href="{% url 'author:connect' %}">Connect</a></li>
+          </ul>
+      
+          <ul id="nav-mobile" class="sidenav" style=" background-color : #303f9f ">
+            <li 
+            {% if '/' == request.path %}
+              class="active"
+            {% else %}
+              class ="non-active"
+            {% endif %}  ><a href="{% url 'main:home' %}" style="color: azure;">Home</a></li>
+            <li
+            {% if 'blog' in request.path %}
+              class="active"
+            {% else %}
+              class ="non-active"
+            {% endif %} 
+            ><a href="{% url 'blog:posts' %}" style="color: azure;">Blog</a></li>
+            <li
+            {% if 'connect' in request.path %}
+              class="active"
+            {% else %}
+              class ="non-active"
+            {% endif %} 
+            ><a href="{% url 'author:connect' %}" style="color: azure;">Connect</a></li>
+            <div class="divider" style="color: azure;"></div>
+            {% for writer in writers %}
+              <li><a
+                   {% if 'connect' in request.path %}
+              href="{{ writer.slug }}"
+            {% else %}
+              href="connect/{{ writer.slug }}"
+            {% endif %} 
+               style="color: azure;">{{ writer.first_name }}</a></li>
+            {% endfor %}
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            <div class="divider"></div>
+            <li><a href="#" style="color: azure;">Dev by Eyimofe Ayo Pinnick</a></li>
+          </ul>
+          <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="fas fa-list"></i></a>
+        </div>
+      </nav>

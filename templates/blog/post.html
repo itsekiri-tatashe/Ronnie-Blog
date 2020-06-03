@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+{% block title %} 
+    Rho's D | {{blog.blog_title}}
+{% endblock %}
+{% load static %}
+{% load humanize %}
+{% block content %}
+	<div class="parallax-container valign-wrapper" style=" height: 300px;"style="filter:blur(2px);">
+            <div class="section no-pad-bot">
+              <div class="container">
+                <div class="row center">
+                  <h3 class="center-align" style="color: cornsilk;font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;">{{ blog.blog_title }}  -  Dear Diary {{ blog.id|apnumber }}</h3>
+                </div>
+              </div>
+            </div>
+            <div class="parallax"><img 
+              {% if blog.blog_photo %} 
+                srcset="{{ blog.blog_photo.url }}" class="responsive-img"
+              {% else %}
+                srcset="{% static 'img/overhead.jpg' %}" class="responsive-img"
+              {% endif %}
+              
+              ></div>
+              }
+          </div>
+          <div class="container">
+            <blockquote>
+              <h6>Jotted By <a href="/connect/{{ blog.blog_author.slug }}" style="font-family: Verdana, Geneva, Tahoma, sans-serif;color:darkmagenta;" target="_blank">{{ blog.blog_author }} </a></h6>
+              <p>{{ blog.blog_time }}</p>
+            </blockquote>
+            <div class="tag">
+              <div class="chip">
+                <img src="{{ blog.blog_author.snap.url }}" alt="Author">
+                 {{ blog.blog_author }}
+              </div>
+            </div>
+            <br>
+             <br>
+            
+            <div class="main">
+              <p style="color:black">
+                  {{ blog.blog_content |safe}}{{ form.media }}
+                </p>
+            </div>
+            <br>
+            <br>
+            <br>
+          </div>
+{% endblock %}
