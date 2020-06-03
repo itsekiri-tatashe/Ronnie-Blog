@@ -1,0 +1,1 @@
+web: gunicorn rhosdiary.wsgi --log-file -
